@@ -3,7 +3,7 @@ class Credential:
     credential_list=[]
 
     '''
-    class that generates new instance of contacts
+    class that generates new instances of credentials
     '''
 
     def __init__(self, identity, user_name, password):
@@ -28,9 +28,19 @@ class Credential:
         '''
         Method that checks if user and password are correct
         '''
-        for cred in credential_list:
+        for cred in cls.credential_list:
             if cred.user_name == name and cred.password == password:
                 return cred
             return 0
+
+    def data_exists(cls,number):
+        '''
+        Checks if data exists in the profile
+        '''
+        for data in cls.credential_list:
+            if data.identity == number:
+                return True
+        return False
+
 
     #End of credential class
