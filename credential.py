@@ -33,14 +33,13 @@ class Credential:
                 return cred
             return 0
 
-    def data_exists(cls,number):
+    def cred_data_exists(cls,number):
         '''
         Checks if data exists in the profile
         '''
-        for data in cls.credential_list:
-            if data.identity == number:
+        for data in cls.users_list:
+            if data.data_identity == number:
                 return True
         return False
-
 
     #End of credential class
