@@ -58,6 +58,8 @@ class UserData:
                 if password.data_identity == data_number:
                     return password
 
+    @classmethod
+
 
 
 
