@@ -79,7 +79,6 @@ def main():
     user_id = 0 #assigned to identity variable
     data_identity = 0 #assigned to identify variable for user data
     user_entries = [] #variable to hold the identity of user
-    saved_users = []
     print("\n")
     print("Hello, welcome to password locker!")
     print("-"*35)
@@ -105,10 +104,10 @@ def main():
                 print("\n"+"Enter your password: ")
                 password = input()
 
-                saved_users.append(save_credential(create_credential(user_id,username,password))) # create and save new contact.
+                save_credential(create_credential(user_id,username,password)) # create and save new contact.
                 user_id+=1
                 print ('\n')
-                print(f"New Credential for user {username} with password {password} has been created for {saved_users.identity}")
+                print(f"New Credential for user {username} with password {password} has been created for{user_id}")
                 print ('\n')
                 print("Log in to continue")
                 user_entries.append(0)
@@ -130,93 +129,93 @@ def main():
                 elif result != 0:
                     print(f"Welcome result {result.user_name}. What would you like to do?")
 
-                while True:
-                    print("Type one of the short codes:\n  ca - create new account \n  vp - view accounts\n  cp - copy password to clipboard\n  lo - Log Out")
-                    code_input = input().lower()
+                    while True:
+                        print("Type one of the short codes:\n  ca - create new account \n  vp - view accounts\n  cp - copy password to clipboard\n  lo - Log Out")
+                        code_input = input().lower()
 
-                    if code_input == 'ca':
-                            print("Enter new account name eg. facebook, yelp")
-                            account_name = input("Account Name")
-                            print("Do you want to to key in your own password or automatically generate one?")
-
-
-                            print("Type these codes:\n mp - manually generate password\n ap - automatically generate password")
-                            password_input = input().lower()
-
-                            if password_input == 'mp':
-                                account_key = input("Enter your new password: ")
-                                user_identity = result.identity
-
-                                save_account(create_data(user_identity,user_entries[user_identity], account_name, account_key))
-                                user_entries[user_identity] = user_entries[user_identity]+1
-
-                                print("\n Kindly wait ....")
-                                time.sleep(1.5)
-
-                                print('\n')
-                                print(f"The new password for account {account_name} is {account_key} your {user_identity} and {user_entries[user_identity]}\n")
+                        if code_input == 'ca':
+                                print("Enter new account name eg. facebook, yelp")
+                                account_name = input("Account Name")
+                                print("Do you want to to key in your own password or automatically generate one?")
 
 
+                                print("Type these codes:\n mp - manually generate password\n ap - automatically generate password")
+                                password_input = input().lower()
 
-                            elif password_input == 'ap':
+                                if password_input == 'mp':
+                                    account_key = input("Enter your new password: ")
+                                    user_identity = result.identity
 
-                                print("How long would you like the password to be")
-                                password_length = int(input("Length of password: "))
+                                    save_account(create_data(user_identity,user_entries[user_identity], account_name, account_key))
+                                    user_entries[user_identity] = user_entries[user_identity]+1
 
-                                account_key = generate_password(password_length)
-                                user_identity = result.identity
+                                    print("\n Kindly wait ....")
+                                    time.sleep(1.5)
 
-                                save_account(create_data(user_identity,user_entries[user_identity], account_name, account_key))
-                                user_entries[user_identity] = user_entries[user_identity]+1
+                                    print('\n')
+                                    print(f"The new password for account {account_name} is {account_key} your {user_identity} and {user_entries[user_identity]}\n")
 
-                                print("\n Kindly wait ....")
-                                time.sleep(1.5)
 
-                                print('\n')
-                                print(f"The new password for account {account_name} is {account_key} your {user_identity} and {user_entries[user_identity]}\n")
 
+                                elif password_input == 'ap':
+
+                                    print("How long would you like the password to be")
+                                    password_length = int(input("Length of password: "))
+
+                                    account_key = generate_password(password_length)
+                                    user_identity = result.identity
+
+                                    save_account(create_data(user_identity,user_entries[user_identity], account_name, account_key))
+                                    user_entries[user_identity] = user_entries[user_identity]+1
+
+                                    print("\n Kindly wait ....")
+                                    time.sleep(1.5)
+
+                                    print('\n')
+                                    print(f"The new password for account {account_name} is {account_key} your {user_identity} and {user_entries[user_identity]}\n")
+
+                                else:
+                                    print("Invalid entry enter command again")
+
+                        elif code_input == 'vp':
+                            #displaying data
+                            if data_exists(result.identity):
+                                length = user_entries[result.identity]
+                                print(f"You have {length} passwords:")
+                                print("\n")
+
+                                mydata = 0
+
+                                while mydata < length:
+                                    get_data = display_data(result.identity,mydata)
+                                    print(f"***{mydata+1}. Account Name:{get_data.account_name}-----Account Password:{get_data.account_key}***")
+                                    mydata+=1
+                                print("Type a command to continue")
                             else:
-                                print("Invalid entry enter command again")
+                                print("You haave no data use ca code  to create new accounts")
+                                print("-"*20)
 
-                    elif code_input == 'vp':
-                        #displaying data
-                        if data_exists(result.identity):
-                            length = user_entries[result.identity]
-                            print(f"You have {length} passwords:")
-                            print("\n")
 
-                            mydata = 0
 
-                            while mydata < length:
-                                get_data = display_data(result.identity,mydata)
-                                print(f"***{mydata+1}. Account Name:{get_data.account_name}-----Account Password:{get_data.account_key}***")
-                                mydata+=1
-                            print("Type a command to continue")
+
+
+
+
+
+
+
+
+
+
+                        elif code_input == 'lo':
+                            #logging out of account
+                            print('\n')
+                            print(f"Goodbye {result.user_name}")
+                            break
+
                         else:
-                            print("You haave no data use ca code  to create new accounts")
-                            print("-"*20)
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    elif code_input == 'lo':
-                        #logging out of account
-                        print('\n')
-                        print(f"Goodbye {result.user_name}")
-                        break
-
-                    else:
-                        print("Invalid entry enter command again")
-                        print("\n"+"-"*35)
+                            print("Invalid entry enter command again")
+                            print("\n"+"-"*35)
 
 
 
