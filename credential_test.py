@@ -8,7 +8,7 @@ class TestCredential(unittest.TestCase):
 
     def setUp(self):
         '''
-        Function to set initialize variables for testing
+        Function to set initial variables for testing
         '''
         self.new_cred = Credential(1,"Sophia","admin")
 
@@ -42,6 +42,16 @@ class TestCredential(unittest.TestCase):
         test_cred.save_credential()
 
         self.assertEqual(len(Credential.credential_list),2)
+
+    def test_authenticate_credential(self):
+        '''
+        '''
+
+        test_cred = Credential(1,"Test","Password")
+        test_cred.save_credential()
+
+        found_cred = Credential.authenticate_credential("Test","Password")
+        self.assertEqual(found_cred.identity,test_cred.identity)
 
 
 if __name__ == "__main__":
