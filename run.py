@@ -62,9 +62,29 @@ def display_data(user_number,data_number):
     '''
     return UserData.display_data(user_number,data_number)
 
+def account_exist(name):
+    '''
+    Function that checks if the account exists by name
+    '''
+    return UserData.account_exist(name)
 
-
-
+# def find_by_name(name):
+#     '''
+#     Function that finds the data for the account
+#     '''
+#     return UserData.find_by_name(name)
+#
+# def copy_password(name):
+#     '''
+#     Function for copying Email
+#     '''
+#     account_found = UserData.find_by_name(name)
+#     pyperclip.copy(account_found.account_key)
+def copy_password(number,count):
+    '''
+    Function that copies the password to the clipboard
+    '''
+    UserData.copy_password(number,count)
 
 
 
@@ -130,7 +150,7 @@ def main():
                     print(f"Welcome result {result.user_name}. What would you like to do?")
 
                     while True:
-                        print("Type one of the short codes:\n  ca - create new account \n  vp - view accounts\n  cp - copy password to clipboard\n  lo - Log Out")
+                        print("Type one of the short codes:\n  ca - create new account \n  va - view accounts\n  cp - copy password to clipboard\n  lo - Log Out")
                         code_input = input().lower()
 
                         if code_input == 'ca':
@@ -177,7 +197,7 @@ def main():
                                 else:
                                     print("Invalid entry enter command again")
 
-                        elif code_input == 'vp':
+                        elif code_input == 'va':
                             #displaying data
                             if data_exists(result.identity):
                                 length = user_entries[result.identity]
@@ -195,16 +215,45 @@ def main():
                                 print("You haave no data use ca code  to create new accounts")
                                 print("-"*20)
 
+                        elif code_input == 'cp':
+                            # if data_exists(result.identity):
+                            #     print("Enter the account name you want to copy")
+                            #     get_name = input("Enter account_name: ")
+                            #
+                            #     if get_name = user_entries[result.account_name]:
+                            #         print("\n")
+                            #         print(f"{get_name} is invalid. Enter the correct account name to copy")
+                            #         print("confirm using vp password")
+                            #         print("-"*25)
+                            #
+                            #     elif get_name < user_entries[result.account_name]:
+                            #         copy_password(result.account_name,get_name)
+                            #         print("\n")
+                            #         print(f"Password for {get_name} on the list has been copied, and is ready for pasting")
+                            #         print("-"*30)
+                            # else:
+                            # print("\nYou have no data.\nType ac to add some passwords")
+                            # print("-"*20)
 
 
+                            if data_exists(result.identity):
+                                print("Enter the account id you want to copy")
+                                get_index = int (input("Enter index: "))-1
 
+                                if get_index >= user_entries[result.identity] or get_index<0:
+                                    print("\n")
+                                    print(f"{get_index+1} is invalid. Enter the correct index of password to copy")
+                                    print("confirm index using vp password")
+                                    print("-"*25)
 
-
-
-
-
-
-
+                                elif get_index < user_entries[result.identity]:
+                                    copy_password(result.identity,get_index)
+                                    print("\n")
+                                    print(f"Password {get_index+1} on the list has been copied, and is ready for pasting")
+                                    print("-"*30)
+                            else:
+                                print("\nYou have no data.\nType ac to add some passwords")
+                                print("-"*20)
 
 
                         elif code_input == 'lo':
