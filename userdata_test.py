@@ -38,6 +38,8 @@ class TestUserData(unittest.TestCase):
     #     '''
     #     test_password_generator test case to test if password has been generated and saved
     #     '''
+    #
+    #     self.new_userdata.save_account()
     #     self.new_userdata.password_generator(2)
     #     self.assertEqual(len(UserData.password_list),1)
 
@@ -64,6 +66,15 @@ class TestUserData(unittest.TestCase):
         display_data = UserData.display_data(2,2)
         self.assertEqual(test_data.account_name,display_data.account_name)
 
+    def test_copy_password(self):
+        '''
+        Test to confirm that we are copying the email address from a found contact
+        '''
+
+        self.new_userdata.save_account()
+        UserData.copy_password(1,1)
+
+        self.assertEqual(self.new_userdata.account_key,pyperclip.paste())
 
 
 
