@@ -22,7 +22,6 @@ class Credential:
         Credential.credential_list.append(self)
 
 
-
     @classmethod
     def authenticate_credential (cls,name,password):
         '''
@@ -31,7 +30,7 @@ class Credential:
         for cred in cls.credential_list:
             if cred.user_name == name and cred.password == password:
                 return cred
-            return 0
+        return 0
 
     def cred_data_exists(cls,number):
         '''
