@@ -34,14 +34,14 @@ class TestUserData(unittest.TestCase):
         self.new_userdata.save_account()   #create and save new_cred
         self.assertEqual(len(UserData.users_list),1)
 
-    # def test_password_generator(self):
-    #     '''
-    #     test_password_generator test case to test if password has been generated and saved
-    #     '''
-    #
-    #     self.new_userdata.save_account()
-    #     self.new_userdata.password_generator(2)
-    #     self.assertEqual(len(UserData.password_list),1)
+    def test_password_generator(self):
+        '''
+        test_password_generator test case to test if password has been generated and saved
+        '''
+
+        self.new_userdata.save_account()
+        self.new_userdata.password_generator(2)
+        self.assertEqual(len(password_list),1)
 
     def test_data_exists(self):
         '''
