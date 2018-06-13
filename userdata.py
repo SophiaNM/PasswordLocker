@@ -1,13 +1,14 @@
-from credential import Credential
-import string,random,time
+
+import string,random
 import pyperclip
+
 
 class UserData:
     '''
     Class that is creates and save new objects of user acccounts data
     '''
     users_list=[]
-    password_list = []
+    # password_list = []
 
     def __init__(self, user_identity, data_identity, account_name, account_key):
         '''
@@ -64,7 +65,6 @@ class UserData:
         found_password = UserData.display_data(number,count)
         pyperclip.copy(found_password.account_key)
 
-
     # @classmethod
     # def account_exists(cls,name):
     #     '''
@@ -89,5 +89,4 @@ class UserData:
     #             return account
     #         return 0
 
-
-    #End of class user data
+    # End of class user data
