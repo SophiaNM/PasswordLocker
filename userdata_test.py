@@ -38,9 +38,10 @@ class TestUserData(unittest.TestCase):
         '''
         test_password_generator test case to test if password has been generated and saved
         '''
+        password_list = []
 
-        self.new_userdata.save_account()
-        self.new_userdata.password_generator(2)
+        password = self.new_userdata.password_generator(2)
+        password_list.append(password)
         self.assertEqual(len(password_list),1)
 
     def test_data_exists(self):
