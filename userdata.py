@@ -8,7 +8,7 @@ class UserData:
     Class that is creates and save new objects of user acccounts data
     '''
     users_list=[]
-    # password_list = []
+    password_list = []
 
     def __init__(self, user_identity, data_identity, account_name, account_key):
         '''
