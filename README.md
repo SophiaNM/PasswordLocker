@@ -14,7 +14,8 @@ The password locker runs as a terminal application and uses short codes to navig
     - li - Logging in
     - ex - Exit the PasswordLocker
 
-2. After logging in, users can create accounts for which they want their passowrds stored. They can then view the passwords , copy the password or log out of the application.Once logged in the following commands are availed:
+
+2. After logging in, users can create accounts for which they want their passowrds stored. They can then view the passwords , copy the password or log out of the application. Once logged in the following commands are availed:
 
     1. ca - Create accounts
     2. va - View accounts
@@ -26,13 +27,17 @@ Specifications include:
 
 | Behavior            | Input                         | Output                        |
 | ------------------- | ----------------------------- | ----------------------------- |
-| Create new credentials | | |
-| Logging in the account | | |
-| Create new accounts and passwords | | |
-| View the accounts and passwords | | |
-| Copy password to clipboard | | |
-| Log out of account | |*Goodbye Sophia* returns to first interface with `cc`,`li` and `ex` |
-| Exit PasswordLocker | | *Goodbye* Application is closed|
+| Starting the application | In the terminal run `python3.6 run.py` |Hello,welcome to passwordlocker please input your name |
+| Welcome message |Input name `Sophia` | Welcome `Sophia` what would you like to do? <br> cc -Creates new account creadential <br> li-Logging in <br> ex- Exit the PasswordLocker|
+| Create new credentials | Type: `cc` Username: Sophia <br>Password: Admin | New Credential for user name `Sophia` with password `Admin` has been created. |
+| Logging in the account | Type: `li` <br>  Username: Sophia <br> Password: Admin | Welcome `Sophia` what would you like to do?<br> ca - Create accounts <br> va - View accounts <br> cp - Copy password to clipboard <br>lo - Log out |
+| Create new accounts and passwords | Type:`ca` <br> account name: Yelp  | Do you want to to key in your own password or automatically generate one? <br> mp - manually generate password <br>ap - automatically generate password |
+|Generate password manually | Type `mp` <br> Input your password: !Password123 |The new password for account Yelp is !Password123 |
+| Or Generate password automatically | Type `ap` <br> Input the length of your password:10 | The new password for account Yelp is !Pa2SwqW13 |
+| View the accounts and passwords |Type `va` | 1. Account Name: Yelp-----!Pa2SwqW13 |
+| Copy password to clipboard | Type `ca` <br> Enter the account index you want to copy| Password 1 on the list has been copied and is ready for pasting|
+| Log out of account | Type `lo` |*Goodbye Sophia* returns to first interface with `cc`,`li` and `ex` |
+| Exit PasswordLocker | Type `ex` | *Goodbye* Application is closed|
 
 
 ## Prerequiites
