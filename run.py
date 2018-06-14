@@ -4,6 +4,7 @@ from userdata import UserData
 import pyperclip
 import string,random,time
 
+#Functions for Credentials
 def create_credential(identity, user_name, password):
     '''
     Function used to initialize and create new accounts
@@ -31,7 +32,6 @@ def create_data(user_identity, data_identity, account_name, account_key):
     '''
     new_userdata = UserData(user_identity, data_identity, account_name, account_key)
     return new_userdata
-
 
 def save_account(data):
     '''
@@ -68,18 +68,6 @@ def account_exist(name):
     '''
     return UserData.account_exist(name)
 
-# def find_by_name(name):
-#     '''
-#     Function that finds the data for the account
-#     '''
-#     return UserData.find_by_name(name)
-#
-# def copy_password(name):
-#     '''
-#     Function for copying Email
-#     '''
-#     account_found = UserData.find_by_name(name)
-#     pyperclip.copy(account_found.account_key)
 def copy_password(number,count):
     '''
     Function that copies the password to the clipboard
@@ -146,6 +134,7 @@ def main():
                         code_input = input().lower()
 
                         if code_input == 'ca':
+                                #Creating new account
                                 print("Enter new account name eg. facebook, yelp")
                                 account_name = input("Account Name")
                                 print("Do you want to to key in your own password or automatically generate one?")
@@ -155,6 +144,7 @@ def main():
                                 password_input = input().lower()
 
                                 if password_input == 'mp':
+                                    #mannually input password
                                     account_key = input("Enter your new password: ")
                                     user_identity = result.identity
 
@@ -170,7 +160,7 @@ def main():
 
 
                                 elif password_input == 'ap':
-
+                                    #automatically generate password
                                     print("How long would you like the password to be")
                                     password_length = int(input("Length of password: "))
 
@@ -208,26 +198,7 @@ def main():
                                 print("-"*20)
 
                         elif code_input == 'cp':
-                            # if data_exists(result.identity):
-                            #     print("Enter the account name you want to copy")
-                            #     get_name = input("Enter account_name: ")
-                            #
-                            #     if get_name = user_entries[result.account_name]:
-                            #         print("\n")
-                            #         print(f"{get_name} is invalid. Enter the correct account name to copy")
-                            #         print("confirm using vp password")
-                            #         print("-"*25)
-                            #
-                            #     elif get_name < user_entries[result.account_name]:
-                            #         copy_password(result.account_name,get_name)
-                            #         print("\n")
-                            #         print(f"Password for {get_name} on the list has been copied, and is ready for pasting")
-                            #         print("-"*30)
-                            # else:
-                            # print("\nYou have no data.\nType ac to add some passwords")
-                            # print("-"*20)
-
-
+                            # copying password to clipboard
                             if data_exists(result.identity):
                                 print("Enter the account id you want to copy")
                                 get_index = int (input("Enter index: "))-1
