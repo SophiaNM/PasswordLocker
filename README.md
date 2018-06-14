@@ -10,9 +10,9 @@ The password locker runs as a terminal application and uses short codes to navig
 ## Features
 1. Users can create a new account, input their password, log in or exit the application using the following short codes:
 
-    - cc - Creates new account creadential
-    - li - Logging in
-    - ex - Exit the PasswordLocker
+    1. cc - Creates new account creadential
+    2. li - Logging in
+    3. ex - Exit the PasswordLocker
 
 
 2. After logging in, users can create accounts for which they want their passowrds stored. They can then view the passwords , copy the password or log out of the application. Once logged in the following commands are availed:
