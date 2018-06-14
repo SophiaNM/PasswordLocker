@@ -119,7 +119,7 @@ def main():
                 save_credential(create_credential(user_id,username,password)) # create and save new contact.
                 user_id+=1
                 print ('\n')
-                print(f"New Credential for user {username} with password {password} has been created for{user_id}")
+                print(f"New Credential for user {username} with password {password} has been created.")
                 print ('\n')
                 print("Log in to continue")
                 user_entries.append(0)
@@ -165,7 +165,7 @@ def main():
                                     time.sleep(1.5)
 
                                     print('\n')
-                                    print(f"The new password for account {account_name} is {account_key} your {user_identity} and {user_entries[user_identity]}\n")
+                                    print(f"The new password for account {account_name} is {account_key}\n")
 
 
 
