@@ -49,7 +49,7 @@ Specifications include:
     3. Run `python3.6 run.py` on your terminal
 
 ## Known bugs
-No known errors so far. If found drop me an email.
+No known bugs so far. If found drop me an email.
 
 ## Technologies Used
 Built using Python 3.6
